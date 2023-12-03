@@ -1,46 +1,54 @@
-var info;
-
 var villainName = "";
 //event listener for the form submission
-document.getElementById("search-form").addEventListener("submit", function (event) {
-    event.preventDefault(); 
+document
+  .getElementById("search-form")
+  .addEventListener("submit", function (event) {
+    event.preventDefault();
     villainName = document.getElementById("villainname").value;
-    
-   getMarvelVillain(villainName);
-})
 
-//https://gateway.marvel.com/v1/public/characters?name=loki&apikey=eab1d19bc677c5895ed2a42f467f7f61
-
+    getMarvelVillain(villainName);
+  });
 
 function getMarvelVillain(villainName) {
-var queryURL = `https://gateway.marvel.com/v1/public/characters?&name=${villainName}&apikey=eab1d19bc677c5895ed2a42f467f7f61`;  
+  var queryURL = `https://gateway.marvel.com/v1/public/characters?&name=${villainName}&apikey=eab1d19bc677c5895ed2a42f467f7f61`;
 
-fetch(queryURL)
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.json(); 
+  fetch(queryURL)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.json();
     })
-    .then(data => {
-        info = {name: data.data.results[0].name,comics:data.data.results[0].comics.items[0].name}; 
-        console.log(data);
-        var comicL = data.data.results[0].comics.items
-            for (let i = 0; i < comicL.length; i++) {
-                console.log(data.data.results[0].comics.items[i].name);
-                
-            }
-        // console.log(data.results.series.items.name)
-        //  console.log(data.results.comics.items.name)
+    .then((data) => {
+      console.log(data);
+
+      displayCharacter(data);
     })
-    .catch(error => {
-        console.error('There was a problem with the fetch operation:', error);
+    .catch((error) => {
+      console.error("There was a problem with the fetch operation:", error);
     });
-    
-    
-console.log(info);
 }
 
+function displayCharacter(data) {
+  const imgEl = document.createElement("img");
+  imgEl.src = data.data.results[0].thumbnail.path + ".jpg";
+  const h2El = document.createElement("h2");
+  h2El.textContent = data.data.results[0].name;
+  const comicList = data.data.results[0].comics.items;
 
+  // Create an unordered list to hold the comics
+  const ulEl = document.createElement("ul");
 
-//villainInfo();
+  // Iterate through the comics and create list items for each one
+  for (let i = 0; i < comicList.length; i++) {
+    const comicItem = comicList[i];
+    const liEl = document.createElement("li");
+    liEl.textContent = comicItem.name;
+    ulEl.appendChild(liEl);
+  }
+
+  // Append the elements to the DOM
+  document.body.appendChild(imgEl);
+  document.body.appendChild(h2El);
+  document.body.appendChild(ulEl);
+}
