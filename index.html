@@ -1,26 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-  <script src="assets/app.js"></script>
-  <link rel="stylesheet" href="assets/styles.css" />
-</head>
-
-<body>
-  <form id="searchForm">
-    <input type="text" id="searchInput" placeholder="Enter your search" />
-    <button type="submit" onclick="handleFormSubmit(event)">Submit</button>
-  </form>
-  <!-- <iframe id="iframe" width="420" height="345" src=""> </iframe> -->
-  <div id="last-inputs-div">
-    <h3>Last 3 Searches</h3>
-    <ul id="last-inputs"></ul>
-  </div>
-  <div id="cardContainer" class="card-Container"></div>
-  <!-- <button onclick="changeSrc ()">Change src</button> -->
-</body>
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="assets/script.js"></script>
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <header>HERO SEARCHUP</header>
+  <body>
+    <form id="searchForm" class="body">
+      <input type="text" id="searchInput" placeholder="Enter your search" />
+      <button type="submit" onclick="handleFormSubmit(event)">Submit</button>
+    </form>
+    <!-- <iframe id="iframe" width="420" height="345" src=""> </iframe> -->
+    <div id="last-inputs-div">
+      <h3>Last 3 Searches</h3>
+      <ul id="last-inputs"></ul>
+    </div>
+    <div id="cardContainer" class="card-container"></div>
+    <!-- <button onclick="changeSrc ()">Change src</button> -->
+  </body>
 </html>
