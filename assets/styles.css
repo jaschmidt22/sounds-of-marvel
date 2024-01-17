@@ -1,0 +1,55 @@
+@font-face {
+    font-family: 'Marvel';
+    src: url(MarvelRegular-Dj83.ttf);
+  }
+  header {
+      background-color: maroon;
+      height: 80px;
+      font-size: 80px;
+      text-size-adjust: auto;
+      font-family: marvel;
+      color: white;
+      text-align: center;
+      margin: center;
+  }
+      .body {
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        align-items: center;
+        border: 1px solid transparent;
+        border-radius: 10px;
+        box-shadow: 8px 8px 16px 0 maroon;
+        display: inline-flex;
+        font-size: 20px;
+        height: 25px;
+        justify-content: flex-start;
+        line-height: 1.5;
+        padding-bottom: calc(0.5em - 1px);
+        padding-left: calc(0.75em - 1px);
+        padding-right: calc(0.75em - 1px);
+        padding-top: calc(0.5em - 1px);
+        position: relative;
+        vertical-align: top;
+      }
+  
+  .card-Container {
+      box-shadow: 4px 4px 8px 0 rgba(15, 12, 12, 0.2); 
+      transition: 0.3s;
+      width: 100px;
+      position: absolute;
+      margin: auto;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: 100px;
+      background-color: #ccc;
+      border-radius: 3px;
+  
+  }
+  .card:hover {
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    }
+    .container {
+      padding: 2px 16px;
+    }
